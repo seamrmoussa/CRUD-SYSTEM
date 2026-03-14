@@ -1,0 +1,16 @@
+.col-md-9 {
+  order: 1;
+}
+
+.col-md-3 {
+  order: 0;
+}
+
+@media (min-width: 768px) {
+  .col-md-9 {
+    order: 0;
+  }
+  .col-md-3 {
+    order: 1;
+  }
+}

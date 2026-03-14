@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD SYSTEM</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <h2 class="text-center p-2 fw-bold text-info bg-dark-subtle">
+      CRUD SYSTEM
+    </h2>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-9">
+          <div class="container-fluid mt-4">
+            <div class="my-3">
+              <input
+                oninput="searchAndDisplayProduct()"
+                type="search"
+                class="form-control form-control-lg"
+                id="search"
+                name="search"
+                placeholder="Search"
+              />
+              <label for="search"></label>
+            </div>
+            <div class="row g-4 mb-4" id="rowDataProducts"></div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="container-fluid">
+            <div class="row mt-3">
+              <div
+                class="d-flex flex-column gap-1 mx-auto p-3 rounded rounded-4 bg-secondary"
+              >
+                <h2 class="text-warning text-center h1">Enter Product Data</h2>
+                <div class="form-floating mb-3">
+                  <input
+                    oninput="validation(this, 'nameErrMsg')"
+                    type="text"
+                    class="form-control"
+                    id="productName"
+                    name="productName"
+                    placeholder=""
+                  />
+                  <label for="productName">Product Name</label>
+                  <p id="nameErrMsg" class="alert alert-danger d-none">
+                    must be in English, between 3 to 15 letters.
+                  </p>
+                </div>
+
+                <div class="form-floating mb-3 nowr">
+                  <input
+                    oninput="validation(this, 'priceErrMsg')"
+                    type="number"
+                    class="form-control"
+                    id="productPrice"
+                    name="productPrice"
+                    placeholder=""
+                  />
+                  <label for="productPrice">Product Price</label>
+                  <p id="priceErrMsg" class="alert alert-danger d-none">
+                    must be Number, between 100$ to 9999999$.
+                  </p>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <input
+                    oninput="validation(this, 'categoryErrMsg')"
+                    list="product-category"
+                    type="text"
+                    class="form-control"
+                    id="productCategory"
+                    name="productCategory"
+                    placeholder=""
+                  />
+                  <label for="productCategory">Product Category</label>
+                  <p id="categoryErrMsg" class="alert alert-danger d-none">
+                    must be choose from the dropdown menu (TV , Mobile , IPhone
+                    , LapTop).
+                  </p>
+                  <datalist id="product-category">
+                    <option value="TV"></option>
+                    <option value="Mobile"></option>
+                    <option value="IPhone"></option>
+                    <option value="LapTop"></option>
+                  </datalist>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <textarea
+                    oninput="validation(this, 'descriptionErrMsg')"
+                    class="form-control"
+                    id="productDescription"
+                    name="productDescription"
+                    placeholder=""
+                  ></textarea>
+                  <label for="productDescription">Product description</label>
+                  <p id="descriptionErrMsg" class="alert alert-danger d-none">
+                    number must be between 10 to 20 digit.
+                  </p>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <input
+                    onchange="validation(this, 'fileImgErrMsg')"
+                    type="file"
+                    class="form-control"
+                    id="ProductFileImg"
+                    name="ProductFileImg"
+                    placeholder=""
+                  />
+                  <label for="ProductFileImg">Product File</label>
+                  <p id="fileImgErrMsg" class="alert alert-danger d-none">
+                    The file must include an image of type (jpeg , jpg , png ,
+                    gif , webp , bmp)
+                  </p>
+                </div>
+
+                <div class="d-flex flex-column gap-3">
+                  <button
+                    id="btnAdd"
+                    onclick="addProduct()"
+                    type="button"
+                    class="btn btn-info w-100 flex-grow-1 py-5 fw-bold"
+                  >
+                    Add Product
+                  </button>
+
+                  <button
+                    id="btnUpdate"
+                    onclick="updateProductData()"
+                    type="button"
+                    class="btn btn-warning w-100 flex-grow-1 py-5 fw-bold d-none"
+                  >
+                    Complete Update
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
