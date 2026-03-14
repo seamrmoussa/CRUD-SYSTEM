@@ -50,7 +50,7 @@ function addProduct() {
       description: productDescription.value.trim(),
       img: ProductFileImg.files[0]
         ? `assets/img/${ProductFileImg.files[0].name}`
-        : "assets/img/7.jpg",
+        : "assets/img/5.png",
     };
     productList.push(product);
 
@@ -174,9 +174,9 @@ function validation(element, eleErrMsg) {
     productPrice: /^(100|[1-9]\d{2,6})(\.\d{1,2})?$/,
     productCategory: /^(TV|Mobile|IPhone|LapTop)$/,
     // Writing anything except <scripts>.
-    productDescription: /^[a-zA-Z\u0600-\u06FF0-9\s.,!?@]{10,20}$/i,
+    productDescription: /^[a-zA-Z\u0600-\u06FF0-9\s.,!?@]{10,18}$/i,
     //any images with type (jpeg , jpg , png , gif , webp , bmp) except <scripts>.
-    ProductFileImg: /^.+\.(jpg|jpeg|png|gif|webp|bmp)$/,
+    ProductFileImg: /^.+\.(jpg|jpeg|png|gif|webp|bmp)$/i,
   };
 
   var term = element.value;
